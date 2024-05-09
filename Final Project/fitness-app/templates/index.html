@@ -1,0 +1,24 @@
+<br>
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <a href="{{ url_for('new_client') }}" class="btn btn-primary m-2 new-client-btn">Add New Client</a>
+    <br>
+    <br>
+    {% for user_chunk in user_chunks %}
+        <div class="row">
+            {% for user in user_chunk %}
+                <div class="col">
+                    <div class="user-box">
+                        <img src="{{ 'static/male-icon.png' if user.gender == 'Male' else 'static/female-icon.png' }}" alt="User Image">
+                        <a href="{{ url_for('view_user', id=user.userID) }}">{{ user.first_name }} {{ user.last_name }}</a>
+                        <div>{{ 'M' if user.gender == 'Male' else 'F' }}</div>
+                        <div>{{ user.height }} cm {{ user.weight }} kg</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+{%endblock%}

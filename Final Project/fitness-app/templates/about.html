@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="text-center">
+    <img src="{{ url_for('static', filename='fitness-logo.png') }}" alt="Fitness Logo">
+</div>
+
+<div class="text-center mt-4">
+    <blockquote class="blockquote">
+        <p class="mb-0">"Fitness is not about being better than someone else. It's about being better than you used to be."</p>
+        <br>
+        <footer class="blockquote-footer">Saud Ahmed</footer>
+    </blockquote>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Our Purpose</h2>
+    <p>We, at MyFitnessPal, believe in empowering individuals to transform their lives through fitness and wellness. Our mission is to provide comprehensive support and resources to help our clients achieve their health and fitness goals.</p>
+    
+    <p>Through personalized training programs, nutritional guidance, and a supportive community, we aim to inspire and motivate individuals to lead healthier lifestyles. We understand that each person's journey is unique, and we are committed to tailoring our approach to meet the specific needs and preferences of our clients.</p>
+    
+    <p>At MyFitnessPal, we strive to foster a positive and inclusive environment where everyone feels welcome and supported on their fitness journey. Whether you're just starting out or looking to take your fitness to the next level, we're here to guide and support you every step of the way.</p>
+</div>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='saud_ahmed.png') }}" class="card-img" alt="Saud Ahmed - Developer">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Saud Ahmed - Developer</h5>
+                    <p class="card-text">I'm a Backend and SQL Developer with a passion for connecting ideas, teams, and industries. With a strong technical background in Software Development and RDBMS, I thrive on solving business challenges through tailored data solutions and effective communication with non-technical stakeholders. I excel in delivering high-performing solutions across various domains.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

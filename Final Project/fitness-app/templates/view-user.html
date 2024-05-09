@@ -1,0 +1,65 @@
+<br>
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <h1>User Details</h1>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h2>User Information</h2>
+        </div>
+        <div class="card-body">
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>Age: {{ user.age }}</p>
+            <p>Gender: {{ user.gender }}</p>
+            <p>Height: {{ user.height }}</p>
+            <p>Weight: {{ user.weight }}</p>
+            <p>Progress Goal: {{ user.progressGoal }}</p>
+            <div class="btn-group" role="group" aria-label="User Actions">
+                <a href="{{ url_for('update_client', id=user.userID) }}" class="btn btn-primary rounded-top new-client-btn">Update Client</a>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger rounded-top" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h2>Program Details</h2>
+        </div>
+        <div class="card-body">
+            <p>Program Name: {{ program.programName }}</p>
+            <p>Fitness Goal: {{ program.fitnessGoal }}</p>
+            <p>Description: {{ program.Description }}</p>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h2>Recommended Exercises for {{ user.first_name }} {{ user.last_name }} based on the program:{{ program.programName }}</h2>
+        </div>
+        <div class="card-body">
+            <ul>
+                {% for exercise in recommended_exercises %}
+                    <li>{{ exercise.ExerciseName }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                <form action="{{ url_for('delete_user', id=user.userID) }}" method="POST">
+                    <div class="custom-delete-button-wrapper">
+                        <input class="btn btn-danger custom-delete-btn" type="submit" value="Delete">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

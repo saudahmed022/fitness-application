@@ -1,0 +1,49 @@
+<br>
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <h2>Add New Client</h2>
+    <form action="" method="POST">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" name="age">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="height">Height (cm)</label>
+                <input type="number" class="form-control" id="height" name="height">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" name="weight">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="firstName">Specific Goal <small class="form-text text-muted font-italic">Use keywords: <em>gain, lose, strength, flexibility, run</em> for more accurate results.</small></label>
+            <input type="text" class="form-control" id="specificGoal" name="specificGoal" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary new-client-btn">Add Client</button>
+    </form>
+</div>
+
+{% endblock %}
